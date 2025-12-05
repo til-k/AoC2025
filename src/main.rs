@@ -22,16 +22,8 @@ fn run_day(day: impl DailyRiddle) {
 }
 
 fn main() {
-    if true //TODO: make a smarter way to select which days are executed
-    {
-        run_day(day1::Day1{});
-    }
-    if true
-    {
-        run_day(day2::Day2{});
-    }
-    if true
-    {
-        run_day(day3::Day3{});
-    }
+    // TODO: general structure can still be improved?
+    if true {run_day(day1::Day1{})};
+    if true {run_day(day2::Day2{})};
+    if true {run_day(day3::Day3{})};
 }
