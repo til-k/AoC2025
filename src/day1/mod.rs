@@ -1,4 +1,20 @@
-fn solve1(input: &str) -> i64 {
+pub struct Day1;
+impl crate::DailyRiddle for Day1{
+
+    fn name(&self) -> &str {
+        "Day 1"
+    }
+
+    fn part1(&self) -> (i128, i128) {
+        return (solve1(include_str!("sample.txt")), solve1(include_str!("riddle.txt")));
+    }
+
+    fn part2(&self) -> (i128, i128) {
+        return (solve2(include_str!("sample.txt")), solve2(include_str!("riddle.txt")));
+    }
+}
+
+fn solve1(input: &str) -> i128 {
     let mut password: i32 = 0;
     let mut position: u8 = 50;
     for l in input.lines() {
@@ -20,11 +36,11 @@ fn solve1(input: &str) -> i64 {
         }
         if position == 0 {password += 1};
     }
-    return password as i64;
+    return password as i128;
 
 }
 
-fn solve2(input: &str) -> i64 {
+fn solve2(input: &str) -> i128 {
     let mut password: i32 = 0;
     let mut position: u8 = 50;
     for l in input.lines() {
@@ -47,14 +63,5 @@ fn solve2(input: &str) -> i64 {
             None => ()
         }
     }
-    return password as i64;
-
-}
-
-pub fn part1() -> (i64, i64) {
-    return (solve1(include_str!("sample.txt")), solve1(include_str!("riddle.txt")));
-}
-
-pub fn part2() -> (i64, i64) {
-    return (solve2(include_str!("sample.txt")), solve2(include_str!("riddle.txt")));
+    return password as i128;
 }

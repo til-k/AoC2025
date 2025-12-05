@@ -1,3 +1,18 @@
+pub struct Day2;
+impl crate::DailyRiddle for Day2{
+    fn name(&self) -> &str {
+        "Day 2"
+    }
+
+    fn part1(&self) -> (i128, i128) {
+        return (solve1(include_str!("sample.txt")), solve1(include_str!("riddle.txt")));
+    }
+
+    fn part2(&self) -> (i128, i128) {
+        return (solve2(include_str!("sample.txt")), solve2(include_str!("riddle.txt")));
+    }
+}
+
 fn is_valid_product_code1(val: i64) -> bool {
     let as_str = val.to_string();
     for i in 1..((as_str.len()/2)+1) {
@@ -7,7 +22,7 @@ fn is_valid_product_code1(val: i64) -> bool {
     return true;
 }
 
-fn solve1(input: &str) -> i64 {
+fn solve1(input: &str) -> i128 {
     let mut solution: i64 = 0;
     let input_no_nl = input.replace("\n", "").replace("\r", "");
     for id_range in input_no_nl.split(",") {
@@ -19,7 +34,7 @@ fn solve1(input: &str) -> i64 {
             }
         }
     }
-    return solution as i64;
+    return solution as i128;
 }
 
 fn is_valid_product_code2(val: i64) -> bool {
@@ -38,7 +53,7 @@ fn is_valid_product_code2(val: i64) -> bool {
     return true;
 }
 
-fn solve2(input: &str) -> i64 {
+fn solve2(input: &str) -> i128 {
     let mut solution: i64 = 0;
     let input_no_nl = input.replace("\n", "").replace("\r", "");
     for id_range in input_no_nl.split(",") {
@@ -50,13 +65,5 @@ fn solve2(input: &str) -> i64 {
             }
         }
     }
-    return solution as i64;
-}
-
-pub fn part1() -> (i64, i64) {
-    return (solve1(include_str!("sample.txt")), solve1(include_str!("riddle.txt")));
-}
-
-pub fn part2() -> (i64, i64) {
-    return (solve2(include_str!("sample.txt")), solve2(include_str!("riddle.txt")));
+    return solution as i128;
 }

@@ -1,5 +1,19 @@
+pub struct Day3;
+impl crate::DailyRiddle for Day3{
+    fn name(&self) -> &str {
+        "Day 3"
+    }
 
-fn solve1(input: &str) -> i64 {
+    fn part1(&self) -> (i128, i128) {
+        return (solve1(include_str!("sample.txt")), solve1(include_str!("riddle.txt")));
+    }
+
+    fn part2(&self) -> (i128, i128) {
+        return (solve2(include_str!("sample.txt")), solve2(include_str!("riddle.txt")));
+    }
+}
+
+fn solve1(input: &str) -> i128 {
     let mut solution: i64 = 0;
     for line in input.lines() {
         let jolts = line.chars().map(|c| {c.to_digit(10).unwrap_or(0)}).collect::<Box<[u32]>>(); //TODO: fn should probably always return result so that we dont hide a possible error
@@ -13,7 +27,7 @@ fn solve1(input: &str) -> i64 {
             }
         }
     }
-    return solution as i64;
+    return solution as i128;
 }
 
 fn solve2(input: &str) -> i128 {
@@ -32,12 +46,4 @@ fn solve2(input: &str) -> i128 {
         }
     }
     return solution;
-}
-
-pub fn part1() -> (i64, i64) {
-    return (solve1(include_str!("sample.txt")), solve1(include_str!("riddle.txt")));
-}
-
-pub fn part2() -> (i128, i128) {
-    return (solve2(include_str!("sample.txt")), solve2(include_str!("riddle.txt")));
 }
