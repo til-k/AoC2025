@@ -1,6 +1,7 @@
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 pub trait DailyRiddle {
     fn name(&self) -> &str;
@@ -23,7 +24,8 @@ fn run_day(day: impl DailyRiddle) {
 
 fn main() {
     // TODO: general structure can still be improved?
-    if true {run_day(day1::Day1{})};
-    if true {run_day(day2::Day2{})};
-    if true {run_day(day3::Day3{})};
+    if false {run_day(day1::Day1{})};
+    if false {run_day(day2::Day2{})};
+    if false {run_day(day3::Day3{})};
+    if true  {run_day(day4::Day4{})};
 }
